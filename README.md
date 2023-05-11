@@ -34,7 +34,7 @@ allprojects {
 Step 2. Add the dependency
 ````
 dependencies {
-	        implementation 'com.github.ZeroOneZeroR:android_audio_mixer:v1.1'
+	        implementation 'com.github.marcovisona:android_audio_mixer:1.1'
 	}
 ````
 
