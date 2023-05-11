@@ -45,6 +45,8 @@ public class AudioMixer {
 
     private MixingType mixingType = MixingType.PARALLEL;
 
+    private boolean volumeAdjustmentEnabled = true;
+
     /*
     * Looping means if an audio input reaches its end-time,
     * it will again go to its start-time.
@@ -344,7 +346,7 @@ public class AudioMixer {
                         short value = input.getNext();
                         //controlling volume
                         value = (short)(value * input.getVolume());
-                        result += value / audioInputList.size();
+                        result += volumeAdjustmentEnabled ? value / audioInputList.size() : value;
                         put = true;
                     }
                 }
@@ -514,6 +516,11 @@ public class AudioMixer {
         return outputDurationUs;
     }
 
+
+    public boolean isVolumeAdjustmentEnabled() {
+        return volumeAdjustmentEnabled;
+    }
+
     public void setMixingType(MixingType mixingType) {
         this.mixingType = mixingType;
     }
@@ -538,7 +545,9 @@ public class AudioMixer {
         this.processingListener = processingListener;
     }
 
-
+    public void setVolumeAdjustmentEnabled(boolean adjustVolume) {
+        this.volumeAdjustmentEnabled = adjustVolume;
+    }
 
     /************************ Listeners ***********************/
 

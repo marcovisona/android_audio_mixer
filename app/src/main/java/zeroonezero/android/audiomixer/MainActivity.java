@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         //audioMixer.setChannelCount(2); // 1 or 2 // optional
         //audioMixer.setLoopingEnabled(true); // Only works for parallel mixing
         audioMixer.setMixingType(AudioMixer.MixingType.PARALLEL);
+        audioMixer.setVolumeAdjustmentEnabled(false);
         audioMixer.setProcessingListener(new AudioMixer.ProcessingListener() {
             @Override
             public void onProgress(double progress) {
